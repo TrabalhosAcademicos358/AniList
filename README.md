@@ -4,7 +4,9 @@ Normalmente se há um interesse em guardar os animes assistidos dentro de uma li
 
 ## Anime
 
-Essa classe deverá guardar o **nome**, o **ano do lançamento**, a **nota** dada pelo publico, o seu **estúdio**, o **gênero**, a **fonte** que o anime foi baseado (manga, linght nove e etc) e a **temporada** da sua época de lançamento (inverno, primavera, verão, outono), todas as informações devem ser retiradas do [**MyAnimeList**](https://myanimelist.net/).
+Essa classe deverá guardar o **nome**, o **ano do lançamento**, a **nota** dada pelo publico, o seu **estúdio**, a **quantidade de episódios**, o **gênero**, a **fonte** que o anime foi baseado (manga, linght nove e etc) e a **temporada** da sua época de lançamento (inverno, primavera, verão, outono), todas as informações devem ser retiradas do [**MyAnimeList**](https://myanimelist.net/).
+
+Para animes que tenham **mais de uma temporada ou partes**, pode se somar os dados, por exemplo uma temporada tenha **média 7** e **12 episódios** e de outra tenha **média 8** e **14 episódios**, a média geral é de 7.5 e o anime ao todo tem 26 epidódios;
 
 ## UserAnime
 
