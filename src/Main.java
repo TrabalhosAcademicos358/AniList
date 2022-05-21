@@ -32,8 +32,22 @@ public class Main {
 
         System.out.println("-----------------------------------------------------------------------------");
 
-        System.out.println("Dragon Ball tem nota maior do que 07: " + dragonBallZTemNotaMaiorQue07);
-        System.out.println("O usuario deu a mesma nota que o publico para Dragon Ball Z? " + usuarioDeuAMesmaNotaDoPublicoParaDragonBall);
+        imprimirTemporadaDoAnime(anime01);
+        imprimirTemporadaDoAnime(anime02);
+
+        System.out.println("-----------------------------------------------------------------------------");
+
+        if (dragonBallZTemNotaMaiorQue07) {
+            System.out.println("A nota media dada pelo pelo publico é maior que 7");
+        } else {
+            System.out.println("O público não deu uma nota media maior que 7 ao anime Dragon Ball");
+        }
+
+        if (usuarioDeuAMesmaNotaDoPublicoParaDragonBall) {
+            System.out.println("Curiosamente o usuário deu a mesma nota que o publico ao anime Dragon Ball");
+        } else {
+            System.out.println("De forma normal o usuário não deu a mesma nota que o público");
+        }
 
         System.out.println("-----------------------------------------------------------------------------");
 
@@ -41,5 +55,22 @@ public class Main {
         System.out.println("Animes que o usuario já assistiu " + usuario.listaDeAnimes.length + " animes");
         System.out.println("Mensagem de perfil do Usuario: ");
         System.out.println(usuario.mensagem);
+    }
+
+    static void imprimirTemporadaDoAnime(Anime anime) {
+        switch (anime.temporada) {
+            case "Primavera":
+                System.out.println("O " + anime.nome + " foi lançando na temporada de primavera");
+                break;
+            case "Verão":
+                System.out.println("O " + anime.nome + " foi lançando na temporada de Verão");
+                break;
+            case "Outono":
+                System.out.println("O " + anime.nome + " foi lançando na temporada de Outono");
+                break;
+            case "Inverno":
+                System.out.println("O " + anime.nome + " foi lançando na temporada de Inverno");
+                break;
+        }
     }
 }
