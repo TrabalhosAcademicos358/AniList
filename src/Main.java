@@ -48,6 +48,15 @@ public class Main {
 
         System.out.println("-----------------------------------------------------------------------------");
 
+        // Estruturas de Repetição, uso do for
+
+        UserAnime usuarioAnimes[] = usuario.listaDeAnimes;
+        for (int cont = 0; cont < usuarioAnimes.length; cont++) {
+            System.out.println("O usuario assistiu o anime " + usuarioAnimes[cont].anime.nome + " e deu nota " + usuarioAnimes[cont].notaUsuario);
+        }
+
+        System.out.println("-----------------------------------------------------------------------------");
+
         // Operações Logicas, guardando o resultado em uma variavel
 
         boolean dragonBallZTemNotaMaiorQue07 = anime01.nota > 07;
