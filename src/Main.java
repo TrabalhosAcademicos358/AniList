@@ -41,18 +41,22 @@ public class Main {
 
         System.out.println("-----------------------------------------------------------------------------");
 
-        // Estruturas Condicionais, uso do Switch
+        UserAnime usuarioAnimes[] = usuario.listaDeAnimes;
 
-        imprimirTemporadaDoAnime(anime01);
-        imprimirTemporadaDoAnime(anime02);
+        // Estruturas de Repetição, uso do while
+
+        int cont = 0;
+        while (cont < usuarioAnimes.length) {
+            imprimirTemporadaDoAnime(usuarioAnimes[cont].anime);
+            cont++;
+        }
 
         System.out.println("-----------------------------------------------------------------------------");
 
         // Estruturas de Repetição, uso do for
 
-        UserAnime usuarioAnimes[] = usuario.listaDeAnimes;
-        for (int cont = 0; cont < usuarioAnimes.length; cont++) {
-            System.out.println("O usuario assistiu o anime " + usuarioAnimes[cont].anime.nome + " e deu nota " + usuarioAnimes[cont].notaUsuario);
+        for (int cont02 = 0; cont02 < usuarioAnimes.length; cont02++) {
+            System.out.println("O usuario assistiu o anime " + usuarioAnimes[cont02].anime.nome + " e deu nota " + usuarioAnimes[cont02].notaUsuario);
         }
 
         System.out.println("-----------------------------------------------------------------------------");
