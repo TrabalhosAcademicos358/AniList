@@ -1,8 +1,8 @@
 package Interfaces;
 
 public interface Midia {
-    double getNota();
-    String getTitulo();
-    String[] getGeneros();
-    String getAutor();
+    public double getNota();
+    public String getTitulo();
+    public String[] getGeneros();
+    public String getAutor();
 }
