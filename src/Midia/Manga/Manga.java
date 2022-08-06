@@ -2,7 +2,7 @@ package Midia.Manga;
 
 import Midia.Midia;
 
-public class Manga extends Midia {
+public class Manga extends Midia implements Interfaces.Midia {
     private String editora;
     private double nota;
     private int anoLacamento;
@@ -28,6 +28,7 @@ public class Manga extends Midia {
         this.editora = editora;
     }
 
+    @Override
     public double getNota() {
         return nota;
     }

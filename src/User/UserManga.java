@@ -1,16 +1,17 @@
 package User;
 
+import Interfaces.UserMidia;
 import Midia.Manga.Manga;
 
-public class UserManga {
+public class UserManga implements UserMidia {
     private Manga manga;
-    private String statusManga;
+    private String status;
     private double notaUsuario;
     private int capitulosLidos;
 
-    public UserManga(Manga manga, String statusManga, double notaUsuario, int capitulosLidos) {
+    public UserManga(Manga manga, String status, double notaUsuario, int capitulosLidos) {
         this.manga = manga;
-        this.statusManga = statusManga;
+        this.status = status;
         this.notaUsuario = notaUsuario;
         this.capitulosLidos = capitulosLidos;
     }
@@ -23,18 +24,20 @@ public class UserManga {
         this.manga = manga;
     }
 
-    public String getStatusManga() {
-        return statusManga;
+    public String getStatus() {
+        return status;
     }
 
-    public void setStatusManga(String statusManga) {
-        this.statusManga = statusManga;
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public double getNotaUsuario() {
         return notaUsuario;
     }
 
+    @Override
     public void setNotaUsuario(double notaUsuario) {
         this.notaUsuario = notaUsuario;
     }

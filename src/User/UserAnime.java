@@ -1,16 +1,17 @@
 package User;
 
+import Interfaces.UserMidia;
 import Midia.Anime.Anime;
 
-public class UserAnime {
+public class UserAnime implements UserMidia {
     private Anime anime;
-    private String statusAnime;
+    private String status;
     private double notaUsuario;
     private int episodiosAssistidos;
 
-    public UserAnime(Anime anime, String statusAnime, double notaUsuario, int episodiosAssistidos) {
+    public UserAnime(Anime anime, String status, double notaUsuario, int episodiosAssistidos) {
         this.anime = anime;
-        this.statusAnime = statusAnime;
+        this.status = status;
         this.notaUsuario = notaUsuario;
         this.episodiosAssistidos = episodiosAssistidos;
     }
@@ -23,18 +24,20 @@ public class UserAnime {
         this.anime = anime;
     }
 
-    public String getStatusAnime() {
-        return statusAnime;
+    public String getStatus() {
+        return status;
     }
 
-    public void setStatusAnime(String statusAnime) {
-        this.statusAnime = statusAnime;
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public double getNotaUsuario() {
         return notaUsuario;
     }
 
+    @Override
     public void setNotaUsuario(double notaUsuario) {
         this.notaUsuario = notaUsuario;
     }

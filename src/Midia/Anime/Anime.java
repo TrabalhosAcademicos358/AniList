@@ -1,7 +1,7 @@
 package Midia.Anime;
 
 import Midia.Midia;
-public class Anime extends Midia {
+public class Anime extends Midia implements Interfaces.Midia {
     private SeasonAnime[] listaDeTemportadas;
 
     public Anime(String titulo, String[] generos, String autor, SeasonAnime[] listaDeTemportadas) {
@@ -23,7 +23,8 @@ public class Anime extends Midia {
         return res;
     }
 
-    protected double getNota() {
+    @Override
+    public double getNota() {
         int res = 0;
 
         for (SeasonAnime season : listaDeTemportadas) {
