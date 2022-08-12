@@ -50,6 +50,7 @@ public class Main {
         System.out.println("Usuario " + usuario + " criado com sucesso");
         System.out.println("O usuario referido já assistiu " + usuario.quantAnimes() + " anime(s) e leu " + usuario.quantMangas() + " manga(s)");
         System.out.println("Dando nota " + userAnime01.getNotaUsuario() + " ao anime " + userAnime01.getAnime());
+        System.out.println("e nota " + userManga01.getNotaUsuario() + " ao mangá " + userManga01.getManga());
 
         System.out.println("-----------------------------------------------------------------------------");
 
@@ -64,7 +65,7 @@ public class Main {
 
         System.out.println("-----------------------------------------------------------------------------");
 
-        System.out.println("Curiosidades do anime " + anime01);
-        anime01.imprimirLancamentos();
+        System.out.println("Lançamentos de cada temporada de " + anime02);
+        anime02.imprimirLancamentos();
     }
 }

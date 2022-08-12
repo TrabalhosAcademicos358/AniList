@@ -17,7 +17,7 @@ public class Manga extends Midia implements Interfaces.Midia {
         this.anoLacamento = anoLacamento;
         this.quantCapitulos = quantCapitulos;
         this.quantVolumes = quantVolumes;
-        Demografia = demografia;
+        this.Demografia = demografia;
     }
 
     public String getEditora() {
