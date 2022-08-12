@@ -1,19 +1,20 @@
 package User;
 
+import Enums.Status;
 import Interfaces.UserMidia;
 import Midia.Manga.Manga;
 
 public class UserManga implements UserMidia {
     private Manga manga;
-    private String status;
+    private Status status;
     private double notaUsuario;
     private int capitulosLidos;
 
-    public UserManga(Manga manga, String status, double notaUsuario, int capitulosLidos) {
+    public UserManga(Manga manga, Status status, double notaUsuario, int capitulosLidos) {
         this.manga = manga;
-        this.status = status;
+        setStatus(status);
         this.notaUsuario = notaUsuario;
-        this.capitulosLidos = capitulosLidos;
+        setCapitulosLidos(capitulosLidos);
     }
 
     public Manga getManga() {
@@ -24,13 +25,21 @@ public class UserManga implements UserMidia {
         this.manga = manga;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
     @Override
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(Status status) {
+        if (status == Status.ASSISTINDO) {
+            this.status = Status.LENDO;
+        } else if (status == Status.COMPLETO) {
+            this.status = Status.COMPLETO;
+            int quantCapitulos = this.manga.getQuantCapitulos();
+            setCapitulosLidos(quantCapitulos);
+        } else {
+            this.status = status;
+        }
     }
 
     public double getNotaUsuario() {
@@ -47,6 +56,11 @@ public class UserManga implements UserMidia {
     }
 
     public void setCapitulosLidos(int capitulosLidos) {
-        this.capitulosLidos = capitulosLidos;
+        if (this.status == Status.COMPLETO) {
+            int quantCapitulos = this.manga.getQuantCapitulos();
+            this.capitulosLidos = quantCapitulos;
+        } else {
+            this.capitulosLidos = capitulosLidos;
+        }
     }
 }

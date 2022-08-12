@@ -2,18 +2,19 @@ package User;
 
 import Interfaces.UserMidia;
 import Midia.Anime.Anime;
+import Enums.Status;
 
 public class UserAnime implements UserMidia {
     private Anime anime;
-    private String status;
+    private Status status;
     private double notaUsuario;
     private int episodiosAssistidos;
 
-    public UserAnime(Anime anime, String status, double notaUsuario, int episodiosAssistidos) {
+    public UserAnime(Anime anime, Status status, double notaUsuario, int episodiosAssistidos) {
         this.anime = anime;
-        this.status = status;
+        setStatus(status);
         this.notaUsuario = notaUsuario;
-        this.episodiosAssistidos = episodiosAssistidos;
+        setEpisodiosAssistidos(episodiosAssistidos);
     }
 
     public Anime getAnime() {
@@ -24,15 +25,25 @@ public class UserAnime implements UserMidia {
         this.anime = anime;
     }
 
-    public String getStatus() {
+    @Override
+    public Status getStatus() {
         return status;
     }
 
     @Override
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(Status status) {
+        if (status == Status.LENDO) {
+            this.status = Status.ASSISTINDO;
+        } else if (status == Status.COMPLETO) {
+            this.status = Status.COMPLETO;
+            int quantEpisodios = this.anime.getQuantEpisodios();
+            setEpisodiosAssistidos(quantEpisodios);
+        } else {
+            this.status = status;
+        }
     }
 
+    @Override
     public double getNotaUsuario() {
         return notaUsuario;
     }
@@ -47,6 +58,11 @@ public class UserAnime implements UserMidia {
     }
 
     public void setEpisodiosAssistidos(int episodiosAssistidos) {
-        this.episodiosAssistidos = episodiosAssistidos;
+        if (this.status == Status.COMPLETO) {
+            int quantEpisodios = this.anime.getQuantEpisodios();
+            this.episodiosAssistidos = quantEpisodios;
+        } else {
+            this.episodiosAssistidos = episodiosAssistidos;
+        }
     }
 }

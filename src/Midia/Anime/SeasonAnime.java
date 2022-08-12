@@ -1,14 +1,15 @@
 package Midia.Anime;
+import Enums.*;
 
 public class SeasonAnime {
     private String estudio;
     private double nota;
     private int quantEpisodios;
-    private String fonte;
+    private Fonte fonte;
     private int anoLançamento;
-    private String temporada;
+    private Temporada temporada;
 
-    public SeasonAnime(String estudio, double nota, int quantEpisodios, String fonte, int anoLançamento, String temporada) {
+    public SeasonAnime(String estudio, double nota, int quantEpisodios, Fonte fonte, int anoLançamento, Temporada temporada) {
         this.estudio = estudio;
         this.nota = nota;
         this.quantEpisodios = quantEpisodios;
@@ -41,11 +42,11 @@ public class SeasonAnime {
         this.quantEpisodios = quantEpisodios;
     }
 
-    public String getFonte() {
+    public Fonte getFonte() {
         return fonte;
     }
 
-    public void setFonte(String fonte) {
+    public void setFonte(Fonte fonte) {
         this.fonte = fonte;
     }
 
@@ -57,11 +58,11 @@ public class SeasonAnime {
         this.anoLançamento = anoLançamento;
     }
 
-    public String getTemporada() {
+    public Temporada getTemporada() {
         return temporada;
     }
 
-    public void setTemporada(String temporada) {
+    public void setTemporada(Temporada temporada) {
         this.temporada = temporada;
     }
 }

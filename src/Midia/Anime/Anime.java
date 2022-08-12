@@ -13,7 +13,7 @@ public class Anime extends Midia implements Interfaces.Midia {
         return listaDeTemportadas;
     }
 
-    protected int getQuantEpisodios() {
+    public int getQuantEpisodios() {
         int res = 0;
 
         for (SeasonAnime season : listaDeTemportadas) {
