@@ -34,4 +34,9 @@ public abstract class Midia {
     public void setAutor(String autor) {
         this.autor = autor;
     }
+
+    @Override
+    public String toString() {
+        return this.titulo;
+    }
 }

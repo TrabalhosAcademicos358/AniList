@@ -47,19 +47,23 @@ public class Main {
 
         // Criando Objeto do tipo User.UserAccount, a conta do usuario
 
-        String mensagemUsuario = "Eu gosto dos animes da temporada de " + "primavera";
+        String mensagemUsuario = "Imagine aqui uma mensagem legal e marcante";
 
         UserAccount usuario = new UserAccount("Lucas", mensagemUsuario, listaAnimes, listaMangas);
 
-        System.out.println("Usuario " + usuario.getNome() + " criado com sucesso");
+        System.out.println("Usuario " + usuario + " criado com sucesso");
         System.out.println("O usuario referido já assistiu " + usuario.quantAnimes() + " anime(s) e leu " + usuario.quantMangas() + " manga(s)");
-        System.out.println("Dando nota " + userAnime01.getNotaUsuario() + " ao anime " + userAnime01.getAnime().getTitulo());
+        System.out.println("Dando nota " + userAnime01.getNotaUsuario() + " ao anime " + userAnime01.getAnime());
 
         System.out.println("-----------------------------------------------------------------------------");
 
         userAnime01.setStatus(Status.COMPLETO);
 
-        System.out.println("O Usuario " + usuario.getNome() + " acabou de terminar de assistir o anime " + userAnime01.getAnime().getTitulo());
+        System.out.println("O Usuario " + usuario + " acabou de terminar de assistir o anime " + userAnime01.getAnime());
         System.out.println("Sendo assim ele tem " + userAnime01.getEpisodiosAssistidos() + " episodios marcados como assistidos");
+
+        System.out.println("-----------------------------------------------------------------------------");
+
+        usuario.imprimirMensagem();
     }
 }
