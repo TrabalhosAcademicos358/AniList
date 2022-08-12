@@ -18,6 +18,16 @@ public class SeasonAnime {
         this.temporada = temporada;
     }
 
+    public String stringTemporada() {
+        switch (this.temporada) {
+            case PRIMAVERA: return "Primavera/Abril";
+            case OUTONO: return "Outono/Outubro";
+            case INVERNO: return "Inverno/Janeiro";
+            case VERAO: return "Verão/Julho";
+        }
+        return null;
+    }
+
     public String getEstudio() {
         return estudio;
     }

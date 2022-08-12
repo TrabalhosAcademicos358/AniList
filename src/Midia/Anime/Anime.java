@@ -27,6 +27,15 @@ public class Anime extends Midia implements Interfaces.Midia {
         listaDeTemportadas.add(temporada);
     }
 
+    public void imprimirLancamentos() {
+        int cont = 0;
+        while (cont < listaDeTemportadas.size()) {
+            SeasonAnime temporada = listaDeTemportadas.get(cont);
+            cont++;
+            System.out.println("A " + cont + "º temporada do anime foi lancada na temporada de " + temporada.stringTemporada() + " do ano de " + temporada.getAnoLançamento());
+        }
+    }
+
     public int getQuantEpisodios() {
         int res = 0;
 

@@ -1,13 +1,9 @@
-import Enums.Status;
-import Midia.Anime.Anime;
-import Midia.Anime.SeasonAnime;
-import Midia.Manga.Manga;
-import User.UserAccount;
-import User.UserAnime;
-import User.UserManga;
+import Midia.Anime.*;
+import Midia.Manga.*;
+import Enums.*;
+import User.*;
 
-import static Enums.Temporada.OUTONO;
-import static Enums.Temporada.PRIMAVERA;
+import static Enums.Temporada.*;
 import static Enums.Fonte.*;
 
 public class Main {
@@ -45,7 +41,7 @@ public class Main {
         UserAnime listaAnimes[] = {userAnime01, userAnime02};
         UserManga listaMangas[] = {userManga01};
 
-        // Criando Objeto do tipo User.UserAccount, a conta do usuario
+        // Criando Objeto do tipo UserAccount, a conta do usuario
 
         String mensagemUsuario = "Imagine aqui uma mensagem legal e marcante";
 
@@ -59,11 +55,16 @@ public class Main {
 
         userAnime01.setStatus(Status.COMPLETO);
 
-        System.out.println("O Usuario " + usuario + " acabou de terminar de assistir o anime " + userAnime01.getAnime());
+        System.out.println("O Usuário " + usuario + " acabou de terminar de assistir o anime " + userAnime01.getAnime());
         System.out.println("Sendo assim ele tem " + userAnime01.getEpisodiosAssistidos() + " episodios marcados como assistidos");
 
         System.out.println("-----------------------------------------------------------------------------");
 
         usuario.imprimirMensagem();
+
+        System.out.println("-----------------------------------------------------------------------------");
+
+        System.out.println("Curiosidades do anime " + anime01);
+        anime01.imprimirLancamentos();
     }
 }
