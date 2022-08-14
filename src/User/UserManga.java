@@ -33,6 +33,8 @@ public class UserManga implements UserMidia {
     public void setStatus(Status status) {
         if (status == Status.ASSISTINDO) {
             this.status = Status.LENDO;
+        } else if (status == Status.PLANEJA_ASSISTIR) {
+            this.status = Status.PLANEJA_LER;
         } else if (status == Status.COMPLETO) {
             this.status = Status.COMPLETO;
             int quantCapitulos = this.manga.getQuantCapitulos();

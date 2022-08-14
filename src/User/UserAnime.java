@@ -34,6 +34,8 @@ public class UserAnime implements UserMidia {
     public void setStatus(Status status) {
         if (status == Status.LENDO) {
             this.status = Status.ASSISTINDO;
+        } else if (status == Status.PLANEJA_LER) {
+            this.status = Status.PLANEJA_ASSISTIR;
         } else if (status == Status.COMPLETO) {
             this.status = Status.COMPLETO;
             int quantEpisodios = this.anime.getQuantEpisodios();
