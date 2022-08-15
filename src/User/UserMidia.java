@@ -6,6 +6,7 @@ public abstract class UserMidia {
     private Status status;
     private double notaUsuario;
     private int progesso;
+
     public UserMidia(Status status, double notaUsuario, int progesso) {
         this.status = status;
         this.notaUsuario = notaUsuario;

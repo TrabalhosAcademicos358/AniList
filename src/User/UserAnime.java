@@ -10,7 +10,7 @@ public class UserAnime extends User.UserMidia implements UserMidia {
     public UserAnime(Status status, double notaUsuario, int progesso, Anime anime) {
         super(status, notaUsuario, progesso);
         this.anime = anime;
-        this.setProgesso(progesso);
+        this.setProgesso(progesso); // Atualiza o proguesso com as regras definidas aqui
     }
 
     @Override

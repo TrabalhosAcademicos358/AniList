@@ -10,7 +10,7 @@ public class UserManga extends User.UserMidia implements UserMidia {
     public UserManga(Status status, double notaUsuario, int progesso, Manga manga) {
         super(status, notaUsuario, progesso);
         this.manga = manga;
-        this.setProgesso(progesso);
+        this.setProgesso(progesso); // Atualiza o proguesso com as regras definidas aqui
     }
 
     @Override
