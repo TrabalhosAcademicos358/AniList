@@ -4,17 +4,38 @@ import Interfaces.UserMidia;
 import Midia.Anime.Anime;
 import Enums.Status;
 
-public class UserAnime implements UserMidia {
+public class UserAnime extends User.UserMidia implements UserMidia {
     private Anime anime;
-    private Status status;
-    private double notaUsuario;
-    private int episodiosAssistidos;
 
-    public UserAnime(Anime anime, Status status, double notaUsuario, int episodiosAssistidos) {
+    public UserAnime(Status status, double notaUsuario, int progesso, Anime anime) {
+        super(status, notaUsuario, progesso);
         this.anime = anime;
-        setStatus(status);
-        this.notaUsuario = notaUsuario;
-        setEpisodiosAssistidos(episodiosAssistidos);
+        this.setProgesso(progesso);
+    }
+
+    @Override
+    public void setStatus(Status status) {
+        if (status == Status.LENDO) {
+            super.setStatus(Status.ASSISTINDO);
+        } else if (status == Status.PLANEJA_LER) {
+            super.setStatus(Status.PLANEJA_ASSISTIR);
+        } else if (status == Status.COMPLETO) {
+            super.setStatus(Status.COMPLETO);
+            int quantEpisodios = this.anime.getQuantEpisodios();
+            setProgesso(quantEpisodios);
+        } else {
+            super.setStatus(status);
+        }
+    }
+
+    @Override
+    public void setProgesso(int episodiosAssistidos) {
+        if (super.getStatus() == Status.COMPLETO) {
+            int quantEpisodios = this.anime.getQuantEpisodios();
+            super.setProgesso(quantEpisodios);
+        } else {
+            super.setProgesso(episodiosAssistidos);
+        }
     }
 
     public Anime getAnime() {
@@ -23,48 +44,5 @@ public class UserAnime implements UserMidia {
 
     public void setAnime(Anime anime) {
         this.anime = anime;
-    }
-
-    @Override
-    public Status getStatus() {
-        return status;
-    }
-
-    @Override
-    public void setStatus(Status status) {
-        if (status == Status.LENDO) {
-            this.status = Status.ASSISTINDO;
-        } else if (status == Status.PLANEJA_LER) {
-            this.status = Status.PLANEJA_ASSISTIR;
-        } else if (status == Status.COMPLETO) {
-            this.status = Status.COMPLETO;
-            int quantEpisodios = this.anime.getQuantEpisodios();
-            setEpisodiosAssistidos(quantEpisodios);
-        } else {
-            this.status = status;
-        }
-    }
-
-    @Override
-    public double getNotaUsuario() {
-        return notaUsuario;
-    }
-
-    @Override
-    public void setNotaUsuario(double notaUsuario) {
-        this.notaUsuario = notaUsuario;
-    }
-
-    public int getEpisodiosAssistidos() {
-        return episodiosAssistidos;
-    }
-
-    public void setEpisodiosAssistidos(int episodiosAssistidos) {
-        if (this.status == Status.COMPLETO) {
-            int quantEpisodios = this.anime.getQuantEpisodios();
-            this.episodiosAssistidos = quantEpisodios;
-        } else {
-            this.episodiosAssistidos = episodiosAssistidos;
-        }
     }
 }

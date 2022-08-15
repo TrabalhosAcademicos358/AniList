@@ -4,17 +4,38 @@ import Enums.Status;
 import Interfaces.UserMidia;
 import Midia.Manga.Manga;
 
-public class UserManga implements UserMidia {
+public class UserManga extends User.UserMidia implements UserMidia {
     private Manga manga;
-    private Status status;
-    private double notaUsuario;
-    private int capitulosLidos;
 
-    public UserManga(Manga manga, Status status, double notaUsuario, int capitulosLidos) {
+    public UserManga(Status status, double notaUsuario, int progesso, Manga manga) {
+        super(status, notaUsuario, progesso);
         this.manga = manga;
-        setStatus(status);
-        this.notaUsuario = notaUsuario;
-        setCapitulosLidos(capitulosLidos);
+        this.setProgesso(progesso);
+    }
+
+    @Override
+    public void setStatus(Status status) {
+        if (status == Status.ASSISTINDO) {
+            super.setStatus(Status.LENDO);
+        } else if (status == Status.PLANEJA_ASSISTIR) {
+            super.setStatus(Status.PLANEJA_LER);
+        } else if (status == Status.COMPLETO) {
+            super.setStatus(Status.COMPLETO);
+            int quantCapitulos = this.manga.getQuantCapitulos();
+            setProgesso(quantCapitulos);
+        } else {
+            super.setStatus(status);
+        }
+    }
+
+    @Override
+    public void setProgesso(int capitulosLidos) {
+        if (super.getStatus() == Status.COMPLETO) {
+            int quantCapitulos = this.manga.getQuantCapitulos();
+            super.setProgesso(quantCapitulos);
+        } else {
+            super.setProgesso(capitulosLidos);
+        }
     }
 
     public Manga getManga() {
@@ -23,46 +44,5 @@ public class UserManga implements UserMidia {
 
     public void setManga(Manga manga) {
         this.manga = manga;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    @Override
-    public void setStatus(Status status) {
-        if (status == Status.ASSISTINDO) {
-            this.status = Status.LENDO;
-        } else if (status == Status.PLANEJA_ASSISTIR) {
-            this.status = Status.PLANEJA_LER;
-        } else if (status == Status.COMPLETO) {
-            this.status = Status.COMPLETO;
-            int quantCapitulos = this.manga.getQuantCapitulos();
-            setCapitulosLidos(quantCapitulos);
-        } else {
-            this.status = status;
-        }
-    }
-
-    public double getNotaUsuario() {
-        return notaUsuario;
-    }
-
-    @Override
-    public void setNotaUsuario(double notaUsuario) {
-        this.notaUsuario = notaUsuario;
-    }
-
-    public int getCapitulosLidos() {
-        return capitulosLidos;
-    }
-
-    public void setCapitulosLidos(int capitulosLidos) {
-        if (this.status == Status.COMPLETO) {
-            int quantCapitulos = this.manga.getQuantCapitulos();
-            this.capitulosLidos = quantCapitulos;
-        } else {
-            this.capitulosLidos = capitulosLidos;
-        }
     }
 }

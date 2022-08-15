@@ -25,8 +25,8 @@ public class Main {
         Anime anime01 = new Anime("Dragon Ball Z", generosDragonBall, "Akira Toriyama", new SeasonAnime[]{temporadaDragonBall});
         Anime anime02 = new Anime("86 Eighty Six", generos86, "Asato Asato (Toru Asakura)", listTempEigthySix);
 
-        UserAnime userAnime01 = new UserAnime(anime01, Status.ASSISTINDO, 8.15, 194);
-        UserAnime userAnime02 = new UserAnime(anime02, Status.COMPLETO, 9, 23);
+        UserAnime userAnime01 = new UserAnime(Status.ASSISTINDO, 8.15, 194, anime01);
+        UserAnime userAnime02 = new UserAnime(Status.COMPLETO, 9, 23, anime02);
 
         // Mangas do usuario
 
@@ -34,7 +34,7 @@ public class Main {
 
         Manga manga01 = new Manga("Full Metall Alchemist", fullMetallGeneros, "Hiromu Arakawa", "Shounen Gangan", 9.05, 2001, 116, 27, "Shounen");
 
-        UserManga userManga01 = new UserManga(manga01, Status.COMPLETO, 10, 116);
+        UserManga userManga01 = new UserManga(Status.COMPLETO, 10, 116, manga01);
 
         // Listas com Animes e Mangas do Usuário
 
@@ -57,7 +57,7 @@ public class Main {
         userAnime01.setStatus(Status.COMPLETO);
 
         System.out.println("O Usuário " + usuario + " acabou de terminar de assistir o anime " + userAnime01.getAnime());
-        System.out.println("Sendo assim ele tem " + userAnime01.getEpisodiosAssistidos() + " episodios marcados como assistidos");
+        System.out.println("Sendo assim ele tem " + userAnime01.getProgesso() + " episodios marcados como assistidos");
 
         System.out.println("-----------------------------------------------------------------------------");
 

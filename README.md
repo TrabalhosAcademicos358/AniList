@@ -20,13 +20,13 @@ Como é de se esperar é uma **classe derivada** a classe `Midia`, ao qual tamb�
 
 Dados de cada temporada de um anime, aqui fica as informações que podem vim a ser modificadas de temporada em temporada.
 
-### UserAnime
+### UserMidia
 
-Está classe deve ser focada na interação do usuário com algum anime, recebendo a **interface** `UseMidia` ao qual definirá todos os seus metodos getter e setter dos seus atributos, e um **objeto** do tipo `Anime` para assimilar com as informações das reações do que o usuario achou deste anime.
+Está classe deve ser focada na interação do usuário com algum anime ou mangá, ou seja a alguma midia, guardando dados como nota que o usuario deu a obra, essa será uma classe abstracta.
 
-### UserManga
+### UserAnime e UserManga
 
-Como a outra falada acima está classe deve ser focada na interação do usuário mas só que com mangas, recebendo a **interface** `UseMidia` ao qual definirá todos os seus metodos getter e setter dos seus atributos, e um **objeto** do tipo `Manga` para assimilar com os dados do que o usuario achou deste mangá.
+Ambas são **Classes Derivadas** a `UseMidia`, ao mesmo tempo a **interface** `UseMidia`, e um **objeto** do tipo `Anime` ou `Manga` para assimilar com as informações das reações do que o usuario achou da obra.
 
 ### UserAccount
 

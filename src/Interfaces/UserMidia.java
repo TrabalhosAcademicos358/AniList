@@ -3,8 +3,10 @@ package Interfaces;
 import Enums.Status;
 
 public interface UserMidia {
-    public Status getStatus();
-    public void setStatus(Status status);
-    public double getNotaUsuario();
-    public void setNotaUsuario(double notaUsuario);
+    Status getStatus();
+    void setStatus(Status status);
+    double getNotaUsuario();
+    void setNotaUsuario(double notaUsuario);
+    int getProgesso();
+    void setProgesso(int progesso);
 }
